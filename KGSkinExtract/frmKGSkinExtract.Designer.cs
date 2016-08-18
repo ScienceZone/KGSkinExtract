@@ -35,18 +35,19 @@
             this.btnExtract = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtResFile
             // 
-            this.txtResFile.Location = new System.Drawing.Point(70, 12);
+            this.txtResFile.Location = new System.Drawing.Point(70, 52);
             this.txtResFile.Name = "txtResFile";
             this.txtResFile.Size = new System.Drawing.Size(288, 21);
             this.txtResFile.TabIndex = 0;
             // 
             // btnResFile
             // 
-            this.btnResFile.Location = new System.Drawing.Point(364, 12);
+            this.btnResFile.Location = new System.Drawing.Point(364, 52);
             this.btnResFile.Name = "btnResFile";
             this.btnResFile.Size = new System.Drawing.Size(73, 23);
             this.btnResFile.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // btnSavePath
             // 
-            this.btnSavePath.Location = new System.Drawing.Point(364, 48);
+            this.btnSavePath.Location = new System.Drawing.Point(364, 88);
             this.btnSavePath.Name = "btnSavePath";
             this.btnSavePath.Size = new System.Drawing.Size(75, 23);
             this.btnSavePath.TabIndex = 3;
@@ -66,14 +67,14 @@
             // 
             // txtSavePath
             // 
-            this.txtSavePath.Location = new System.Drawing.Point(70, 48);
+            this.txtSavePath.Location = new System.Drawing.Point(70, 88);
             this.txtSavePath.Name = "txtSavePath";
             this.txtSavePath.Size = new System.Drawing.Size(288, 21);
             this.txtSavePath.TabIndex = 2;
             // 
             // btnExtract
             // 
-            this.btnExtract.Location = new System.Drawing.Point(12, 84);
+            this.btnExtract.Location = new System.Drawing.Point(12, 124);
             this.btnExtract.Name = "btnExtract";
             this.btnExtract.Size = new System.Drawing.Size(427, 37);
             this.btnExtract.TabIndex = 4;
@@ -84,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 15);
+            this.label1.Location = new System.Drawing.Point(5, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 5;
@@ -93,17 +94,30 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 52);
+            this.label2.Location = new System.Drawing.Point(5, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "保存路径:";
             // 
-            // Form1
+            // label3
             // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(11, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(429, 19);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "本程序没有自动排错功能，如提取过程中造成的一切问题自行承担。";
+            // 
+            // frmKGSkinExtract
+            // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 127);
+            this.ClientSize = new System.Drawing.Size(449, 172);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExtract);
@@ -111,8 +125,10 @@
             this.Controls.Add(this.txtSavePath);
             this.Controls.Add(this.btnResFile);
             this.Controls.Add(this.txtResFile);
-            this.Name = "Form1";
+            this.Name = "frmKGSkinExtract";
             this.Text = "酷狗kugou.skn资源提取";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmKGSkinExtract_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.frmKGSkinExtract_DragEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +143,7 @@
         private System.Windows.Forms.Button btnExtract;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -37,6 +37,8 @@ namespace KugouSkinRead
             {
                 FileName = fd.FileName;
                 txtResFile.Text = FileName;
+
+                txtSavePath.Text = Path.GetDirectoryName(FileName) + "\\" + Path.GetFileNameWithoutExtension(FileName) + "\\";
             }
         }
 
@@ -51,5 +53,21 @@ namespace KugouSkinRead
 
             MessageBox.Show("资源提取完成!");
         }
+
+        private void frmKGSkinExtract_DragDrop(object sender, DragEventArgs e)
+        {
+            string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+            txtResFile.Text = path; //将获取到的完整路径赋值到textBox1
+
+            txtSavePath.Text = Path.GetDirectoryName(path) + "\\" + Path.GetFileNameWithoutExtension(path) + "\\";
+        }
+
+        private void frmKGSkinExtract_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Link;
+            else e.Effect = DragDropEffects.None;
+        }
+
     }
 }
